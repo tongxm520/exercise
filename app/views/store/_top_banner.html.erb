@@ -1,0 +1,126 @@
+<div id="top-banner-and-menu">
+    <div class="container">
+        <div class="col-xs-12 col-sm-4 col-md-3 sidemenu-holder">
+            <!-- ========= TOP NAVIGATION ========= -->
+            <div class="side-menu animate-dropdown">
+                <div class="head"><i class="glyphicon glyphicon-th-list"></i> all departments</div>
+                <nav role="navigation" class="yamm megamenu-horizontal">
+                    <ul class="nav">
+                        <%@first_level.each_with_index do |cat,i|%>
+                        <li class="dropdown menu-item">
+                            <a data-toggle="dropdown" class="custom-ion-chevron-right" href="javascript:void(0);"><%=cat.name%></a>
+                            <ul class="dropdown-menu mega-menu">
+                                <li class="yamm-content">
+                                    <div class="row">
+                                        <%@second_level[i].each_with_index do|sc,j|%>                                       
+		                                      <%if j%3==0 %>
+		                                      <div class="col-md-4 sub-category">
+		                                      <%end%>
+                                            <%if @third_level[i][j].present?%>
+	                                          <h4 class="second-level"><%=sc.name%></h4>
+                                            <%else%>
+                                            <h4 class="second-level"><a href="<%=category_path(sc)%>"><%=sc.name%></a></h4>
+                                            <%end%>
+                                            <%if @third_level[i][j].present?%>
+	                                          <ul class="list-unstyled">
+                                              <%@third_level[i][j].each do|thc|%>
+                                              <li><a href="<%=category_path(thc)%>"><%=thc.name%></a></li>
+                                              <%end%>
+	                                          </ul>
+                                            <%end%>
+		                                      <%if (j+1)%3==0||j+1==@second_level[i].count %>
+		                                      </div>
+		                                      <%end%>                                        
+                                        <%end%>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <%end%>
+                        <!-- /.menu-item -->
+                    </ul>
+                    <!-- /.nav -->
+                </nav>
+                <!-- /.megamenu-horizontal -->
+            </div>
+            <!-- /.side-menu -->
+            <!-- =========== TOP NAVIGATION : END ========== -->
+        </div>
+        <!-- /.sidemenu-holder -->
+
+        <div class="col-xs-12 col-sm-8 col-md-9 homebanner-holder">
+            <!-- ============== SECTION – HERO ============== -->
+            <div id="hero">
+                <div class="owl-carousel owl-inner-nav owl-ui-sm owl-loaded owl-drag" id="owl-main">
+
+                    <!-- /.item -->
+
+                    <!-- /.item -->
+
+                    <div class="owl-stage-outer">
+                        <div class="flexslider" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 898px;">
+                            <ul class="slides">
+                            <li class="owl-item active" style="width: 898px;">
+                                <div style="background-image: url(/assets/sliders/slider01.jpg);" class="item">
+                                    <div class="container-fluid">
+                                        <div class="caption vertical-center text-left">
+                                            <div class="big-text fadeInDown-1">
+                                                Save up to a<span class="big"><span class="sign">$</span>400</span>
+                                            </div>
+
+                                            <div class="excerpt fadeInDown-2">
+                                                on selected laptops
+                                                <br> &amp; desktop pcs or
+                                                <br> smartphones
+                                            </div>
+                                            <div class="small fadeInDown-2">
+                                                terms and conditions apply
+                                            </div>
+                                            <div class="button-holder fadeInDown-3">
+                                                <a class="big le-button " href="single-product.html">shop now</a>
+                                            </div>
+                                        </div>
+                                        <!-- /.caption -->
+                                    </div>
+                                    <!-- /.container-fluid -->
+                                </div>
+                            </li>
+                            <li class="owl-item" style="width: 898px;">
+                                <div style="background-image: url(/assets/sliders/slider03.jpg);" class="item">
+                                    <div class="container-fluid">
+                                        <div class="caption vertical-center text-left">
+                                            <div class="big-text fadeInDown-1">
+                                                Want a<span class="big"><span class="sign">$</span>200</span>Discount?
+                                            </div>
+
+                                            <div class="excerpt fadeInDown-2">
+                                                on selected
+                                                <br>desktop pcs
+                                                <br>
+                                            </div>
+                                            <div class="small fadeInDown-2">
+                                                terms and conditions apply
+                                            </div>
+                                            <div class="button-holder fadeInDown-3">
+                                                <a class="big le-button " href="single-product.html">shop now</a>
+                                            </div>
+                                        </div>
+                                        <!-- /.caption -->
+                                    </div>
+                                    <!-- /.container-fluid -->
+                                </div>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>              
+                </div>
+                <!-- /.owl-carousel -->
+            </div>
+            <!-- ============ SECTION – HERO : END ==== -->
+        </div>
+        <!-- /.homebanner-holder -->
+    </div>
+    <!-- /.container -->
+</div>
+
+

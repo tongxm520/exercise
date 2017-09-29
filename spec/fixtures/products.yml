@@ -1,0 +1,22 @@
+auto:
+  id: 1
+  title: "Pragmatic Project Automation"
+  description: "Pragmatic Project Automation shows you how to improve the consistency and repeatability of your project’s procedures using automation to reduce risk and errors.Simply put, we’re going to put this thing called a computer to work for you doing the mundane (but important) project stuff. That means you’ll have more time and energy to do the really exciting—and difficult—stuff, like writing quality code."
+  image_url: "auto.jpg"
+  price: 49.50
+  category_id: 3
+svn:
+  id: 2
+  title: "Pragmatic Version Control"
+  description: "There’s a change in the air. High-profile projects such as the Linux Kernel, Mozilla, Gnome, and Ruby on Rails are now using Distributed Version Control Systems (DVCS) instead of the old stand-bys of CVS or Subversion."
+  image_url: "svn.jpg"
+  price: 29.50
+  category_id: 3
+utc:
+  id: 3
+  title: "Pragmatic Unit Test"
+  description: "The Pragmatic Programmers classic is back! Freshly updated for modern software development, Pragmatic Unit Testing in Java 8 With JUnit teaches you how to write and run easily maintained unit tests in JUnit with confidence. You’ll learn mnemonics to help you know what tests to write, how to remember all the boundary conditions, and what the qualities of a good test are. You’ll see how unit tests can pay off by allowing you to keep your system code clean, and you’ll learn how to handle the stuff that seems too tough to test."
+  image_url: "utc.jpg"
+  price: 98.99
+  category_id: 3
+  

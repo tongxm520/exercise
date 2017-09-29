@@ -1,0 +1,64 @@
+<%=render :partial => "top_banner" %>
+
+<script type="text/javascript">
+//alert("<%=form_authenticity_token%>");
+
+var top_menu = $('.side-menu .megamenu-horizontal > ul').menuAim({
+	triggerEvent:       'click',  //hover
+	activateCallback:   activate,
+	deactivateCallback: deactivate,
+	submenuDirection:   'right',
+	openClassName:      'open',
+	activationDelay:    200
+});
+
+function activate(row) {
+  var _row = $(row),
+      _submenu = _row.children('ul');
+
+	_row.children('a').addClass('hover');
+	_submenu.css('display', 'block');
+}
+
+function deactivate(row) {
+  var _row = $(row),
+		_submenu = _row.children('ul');
+
+	_row.find('a').removeClass('hover');
+	_submenu.css('display', 'none');
+}
+
+</script>
+
+<style text="text/css">
+.megamenu-horizontal .nav > li > .custom-ion-chevron-right:after {
+    color: #fff;
+    float: right;
+    font-size: 20px;
+    height: 20px;
+    line-height: 18px;
+    opacity: 0;
+    transition: all 0.3s ease 0s;
+    width: 20px;
+}
+
+.sub-category{
+  width: 25%;
+}
+
+.second-level {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.megamenu-horizontal .nav li ul>li div.sub-category h4>a:hover,
+.megamenu-horizontal .nav li ul>li div.sub-category h4>a.hover{
+  color: #fff;
+}
+
+.megamenu-horizontal .nav li ul>li div.sub-category h4>a{
+  padding: 0;
+}
+</style>
+
+

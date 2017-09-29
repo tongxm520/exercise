@@ -1,0 +1,72 @@
+<table width="100%" cellspacing="0" cellpadding="3">
+  <caption>Customer Order</caption>
+  <tbody>
+    <tr>
+      <th>customer_id</th>
+      <th>customer_first_name</th>
+      <th>category_id</th>
+      <th>category_name</th>
+    </tr>
+    <%@likes.each_with_index do |like,i|%>
+    <tr class="tr<%=i&1%>">
+      <td class="col1"><%=like.customer_id%></td>
+      <td class="col0"><%=like.customer_first_name%></td>
+      <td><%=like.category_id%></td>
+      <td class="col2"><i><%=like.category_name%></i></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
+<style type="text/css">
+table {
+	border-width: medium;
+	padding: 3px;
+	background-color: #114411;
+	width: 90%;
+}
+
+caption {
+	text-transform: capitalize;
+	font-weight : bold;
+	font-size: 14pt;
+}
+
+th {
+	color: #FFFFFF;
+	background-color: #114411;
+	text-align: left;
+}
+
+tr {
+	color: #114411;
+	background-color: #114411;
+	vertical-align: top;
+}
+
+tr.tr0 {
+	background-color: #F0F0F0;
+}
+
+tr.tr1 {
+	background-color: #D8D8D8;
+}
+
+td {
+	font-size: 12pt;
+}
+
+td.col0 {
+	font-weight : bold;
+	width: 20%;
+}
+
+td.col1 {
+	font-style: italic;
+	width: 15%;
+}
+
+td.col2 {
+	font-size: 16px;
+}
+</style>

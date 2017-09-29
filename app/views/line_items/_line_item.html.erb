@@ -1,0 +1,21 @@
+<% if line_item == @current_item %>
+<li id="current_item">
+<% else %>
+<li>
+<% end %>
+    <div class="basket-item">
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 no-margin text-center">
+                <div class="thumb">
+                    <img src="/assets/product-small-01.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-xs-8 col-sm-8 no-margin">
+                <div class="title"><%=line_item.product.title %></div>
+                <div class="price"><%=number_to_currency(line_item.product.price) %>&times;<%=line_item.quantity%></div>
+                <div class="price"><%=number_to_currency(line_item.total_price) %></div>
+            </div>
+        </div>
+        <a href="javascript:void(0);" class="close-button ion-close-circled"></a>
+    </div>
+</li>

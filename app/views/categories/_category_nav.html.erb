@@ -1,0 +1,46 @@
+<div class="animate-dropdown">
+    <!-- ========= BREADCRUMB ====================== -->
+    <div id="top-mega-nav">
+        <div class="container">
+            <nav>
+                <ul class="inline">
+                    <%=render :partial => "categories/department" %>
+
+                    <li class="breadcrumb-nav-holder">
+                        <ul>
+                            <%@ancestors.each do |an|%>
+                            <li class="dropdown breadcrumb-item">
+                                <a data-toggle="dropdown" class="ion-custom-arrow-dropdown" href="javascript:void(0);"><%=an.name%> </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">PDA</a>
+                                        <a href="#">accesories</a>
+                                        <a href="#">tablets</a>
+                                        <a href="#">games</a>
+                                        <a href="#">consoles</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- /.breadcrumb-item -->
+                            <%end%>
+
+                            <li class="breadcrumb-item current">
+                                <a href="javascript:void(0);"><%=@cat.name%></a>
+                            </li>
+                            <!-- /.breadcrumb-item -->
+                        </ul>
+                    </li>
+                    <!-- /.breadcrumb-nav-holder -->
+
+                </ul>
+                <!-- /.inline -->
+            </nav>
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#top-mega-nav -->
+    <!-- =============== BREADCRUMB : END =============== -->
+</div>
+
+

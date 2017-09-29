@@ -1,0 +1,173 @@
+<div class="animate-dropdown">
+    <!-- ========= BREADCRUMB======== -->
+    <div id="top-mega-nav">
+        <div class="container">
+            <nav>
+                <ul class="inline">
+                    <%=render :partial => "categories/department" %>
+                    <li class="breadcrumb-nav-holder">
+                        <ul>
+                            <li class="breadcrumb-item current gray">
+                                <a href="#">Checkout Process</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#top-mega-nav -->
+    <!-- ========= BREADCRUMB : END ================ -->
+</div>
+
+<section id="checkout-page">
+    <div class="container">
+        <div class="col-xs-12 no-margin">
+          <%= form_for @order ,:url => {:action => :new} do |f| %>
+            <div class="billing-address">
+                <h2 class="border h1">billing address</h2>                                     
+                    <div class="row field-row">
+                        <div class="col-xs-12 col-sm-6">
+                            <label>address*</label>
+                            <input data-placeholder="street address" class="le-input placeholder" name="order[street]">
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <label>&nbsp;</label>
+                            <input name="order[town]" data-placeholder="town" class="le-input placeholder">
+                        </div>
+                    </div>
+                    <!-- /.field-row -->
+
+                    <div class="row field-row">
+                        <div class="col-xs-12 col-sm-6">
+                            <label>postcode / Zip*</label>
+                            <input class="le-input" name="order[zip]">
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-6">
+                            <label>phone number*</label>
+                            <input class="le-input" name="order[phone]">
+                        </div>
+                    </div>
+                    <!-- /.field-row -->
+
+                    <div class="row field-row">
+                        <div class="col-xs-12" id="create-account">
+                            <input type="checkbox" class="le-checkbox big"><i class="fake-box"></i>
+                            <a href="#" class="simple-link bold">Create Account?</a> - you will receive email with temporary generated password after login you need to change it.
+                        </div>
+                    </div>
+                    <!-- /.field-row -->
+            </div>
+            <!-- /.billing-address -->
+
+            <section id="shipping-address">
+                <h2 class="border h1">shipping address</h2>
+                    <div class="row field-row">
+                        <div class="col-xs-12">
+                            <input type="checkbox" class="le-checkbox big"><i class="fake-box"></i>
+                            <a href="#" class="simple-link bold">ship to different address?</a>
+                        </div>
+                    </div>
+                    <!-- /.field-row -->
+            </section>
+            <!-- /#shipping-address -->
+
+            <section id="your-order">
+                <h2 class="border h1">your order</h2>
+                <%@cart.line_items.order("line_items.id").each do |item|%>                                      
+                <div class="row no-margin order-item">
+                    <div class="col-xs-12 col-sm-1 no-margin">
+                        <a class="qty" href="#"><%=item.quantity%> x</a>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-9 ">
+                        <div class="title"><a href="#"><%=item.product.title%></a></div>
+                        <div class="brand">sony</div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-2 no-margin">
+                        <div class="price"><%=number_to_currency(item.total_price)%></div>
+                    </div>
+                </div>
+                <%end%>
+                <!-- /.order-item -->
+            </section>
+            <!-- /#your-order -->
+
+            <div class="row no-margin" id="total-area">
+                <div class="col-xs-12 col-lg-4 col-lg-offset-8 no-margin-right">
+                    <div id="subtotal-holder">
+                        <ul class="tabled-data inverse-bold no-border">
+                            <li>
+                                <label>cart subtotal</label>
+                                <div class="value "><%=number_to_currency(@cart.total_price)%></div>
+                            </li>
+                            <li>
+                                <label>shipping</label>
+                                <div class="value">
+                                    <div class="radio-group">
+                                        <input type="radio" value="free" name="shipping" class="le-radio"><i class="fake-box"></i>
+                                        <div class="radio-label bold">free shipping</div>
+                                        <br>
+                                        <input type="radio" checked="" value="local" name="local" class="le-radio"><i class="fake-box"></i>
+                                        <div class="radio-label">local delivery
+                                            <br><span class="bold">$15</span></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- /.tabled-data -->
+
+                        <ul class="tabled-data inverse-bold " id="total-field">
+                            <li>
+                                <label>order total</label>
+                                <div class="value"><%=number_to_currency(@cart.total_price)%></div>
+                            </li>
+                        </ul>
+                        <!-- /.tabled-data -->
+
+                    </div>
+                    <!-- /#subtotal-holder -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /#total-area -->
+
+            <div id="payment-method-options">
+                    <div class="payment-method-option">
+                        <input type="radio" value="direct" name="order[pay_type]" class="le-radio"><i class="fake-box"></i>
+                        <div class="radio-label bold ">Direct Bank Transfer
+                            <br>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum tempus elit, vestibulum vestibulum erat ornare id.</p>
+                        </div>
+                    </div>
+                    <!-- /.payment-method-option -->
+
+                    <div class="payment-method-option">
+                        <input type="radio" value="cheque" name="order[pay_type]" class="le-radio"><i class="fake-box"></i>
+                        <div class="radio-label bold ">cheque payment</div>
+                    </div>
+                    <!-- /.payment-method-option -->
+
+                    <div class="payment-method-option">
+                        <input type="radio" value="paypal" name="order[pay_type]" class="le-radio"><i class="fake-box"></i>
+                        <div class="radio-label bold ">paypal system</div>
+                    </div>
+                    <!-- /.payment-method-option -->
+            </div>
+            <!-- /#payment-method-options -->
+
+            <div class="place-order-button">
+              <button type="submit" class="le-button big">place order</button>
+            </div>
+            <!-- /.place-order-button -->
+            <%end%>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.container -->
+</section>
+
+

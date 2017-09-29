@@ -1,0 +1,4 @@
+$('#cart').html("<%= escape_javascript(render(@cart)) %>");
+$($(".basket-item-count .count")[0]).html("<%=@cart.line_items.count%>");
+$($(".total-price-basket .total-price .value")[0]).html("<%=@cart.total_price%>");
+

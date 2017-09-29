@@ -1,0 +1,42 @@
+<div class="depot-form">
+<%= form_for(@customer) do |f| %>
+  <% if @customer.errors.any? %>
+    <div id="error-explanation">
+      <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+      <ul>
+      <% @customer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>Enter Customer Details</legend>
+    <div>
+    <%= f.label :user_name %>:
+    <%= f.text_field :user_name, :size => 40 %>
+    </div>
+    <div>
+    <%= f.label :first_name %>:
+    <%= f.text_field :first_name, :size => 40 %>
+    </div>
+    <div>
+    <%= f.label :last_name %>:
+    <%= f.text_field :last_name, :size => 40 %>
+    </div>
+    <div>
+    <%= f.label :password, 'Password' %>:
+    <%= f.password_field :password, :size => 40 %>
+    </div>
+    <div>
+    <%= f.label :password_confirmation, 'Confirm' %>:
+    <%= f.password_field :password_confirmation, :size => 40 %>
+    </div>
+    <div>
+    <%= f.submit %>
+    </div>
+  </fieldset>
+<% end %>
+</div>
+

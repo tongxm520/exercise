@@ -1,0 +1,7 @@
+<%if @shopping_cart%>
+	$('#cart').html("<%= escape_javascript(render(@shopping_cart)) %>");
+	$($(".basket-item-count .count")[0]).html("<%=@shopping_cart.line_items.count%>");
+	$($(".total-price-basket .total-price .value")[0]).html("<%=@shopping_cart.total_price%>");
+	$("#cart-container").html("<%=escape_javascript(render :partial => "carts/shopping_cart", :locals => { :cart => @shopping_cart }) %>");
+<%end%>
+

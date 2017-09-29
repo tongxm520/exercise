@@ -1,0 +1,105 @@
+product_1:
+  id: 1
+  title: "Pragmatic Project Automation"
+  description: "Pragmatic Project Automation shows you how to improve the consistency and repeatability of your project’s procedures using automation to reduce risk and errors.Simply put, we’re going to put this thing called a computer to work for you doing the mundane (but important) project stuff. That means you’ll have more time and energy to do the really exciting—and difficult—stuff, like writing quality code."
+  image_url: "auto.jpg"
+  price: 49.50
+  category_id: 3
+product_2:
+  id: 2
+  title: "Pragmatic Version Control"
+  description: "There’s a change in the air. High-profile projects such as the Linux Kernel, Mozilla, Gnome, and Ruby on Rails are now using Distributed Version Control Systems (DVCS) instead of the old stand-bys of CVS or Subversion."
+  image_url: "svn.jpg"
+  price: 29.50
+  category_id: 3
+product_3:
+  id: 3
+  title: "Pragmatic Unit Test"
+  description: "The Pragmatic Programmers classic is back! Freshly updated for modern software development, Pragmatic Unit Testing in Java 8 With JUnit teaches you how to write and run easily maintained unit tests in JUnit with confidence. You’ll learn mnemonics to help you know what tests to write, how to remember all the boundary conditions, and what the qualities of a good test are. You’ll see how unit tests can pay off by allowing you to keep your system code clean, and you’ll learn how to handle the stuff that seems too tough to test."
+  image_url: "utc.jpg"
+  price: 98.99
+  category_id: 3
+ming_chao:
+  id: 4
+  title: "明朝那些事"
+  description: "《明朝那些事儿》图文精印版由当年明月全新修订，明史专家毛佩琦教授审订并作序推荐
+　　原文一字不少，新增四大板块全新内容——肖像图、拓展阅读、事件进化图表、古地图四大版块
+　　超值定价，收藏必选
+
+　　一、当年明月全新修订，资深明矾五周年纪念回馈版，明史普及**价值收藏版
+　　1.更权威：当年明月全新修订，明史专家毛佩琦教授审订并作序推荐，全程演绎明朝三百年兴衰风云。
+　　2.更丰富：新增四大板块全新内容——肖像图、拓展阅读、事件进化图表、古地图。涉及关键词解析、历史背景及相关插图、作战图、形势图、人物关系图等。图解历史，小细节、大事件一目了然，通俗易懂。
+　　3.更精美：图文并茂，追求更加精美、舒适的装帧。
+　　二、近三十年来*畅销史学读本，读起来就停不下来、*易上手的明朝历史普及本
+　　《明朝那些事儿》自2006年出版后，迅速荣登“新浪图书风云榜”**图书、当当网“终身五星级**图书”；多次斩获“*****畅销书大奖”；被评为全国十大畅销书之一、全国中小学生必读十本好书之一、2007—2011年度系列畅销书**名；连续多年被读者推荐为印象*深之书。众多名人、明星、名流的枕边书，无数人口口相传的*有阅读价值读物。"
+  image_url: "mingchao.jpg"
+  price: 154.8
+  category_id: 3
+daying:
+  id: 5
+  title: "大英博物馆世界简史"
+  description: "★180余幅插图，全彩印刷
+★大英博物馆馆长亲自撰写，大英博物馆、BBC联手打造
+★大英博物馆800万件馆藏精选100件，展现200万年人类史
+★历时4年，动员100多名馆员、400余位专家参与
+★BBC播出，创下1100万人口同时收听的纪录
+★位居英国各大畅销书排行榜前列
+★美国版上市第1周即进入《纽约时报》非虚构类畅销榜，在榜时间超过4个月
+★《星期天泰晤士报》年度历史图书，《每日电讯报》年度好书
+★获2011年全英博物馆“艺术基金奖”
+★入选中国第十届文津图书奖少儿类推荐图书
+★全世界只有大英博物馆才能办到的世界史撰写计划，人类史上前所未有的巨献。——《纽约时报》
+★以完美的冷静笔触穿越各个大陆、各种文化与各个时期，《大英博物馆世界简史》是以收藏全球文物为宗旨的博物馆在当今世界上何以仍能保有重要地位的明证，它让人欲罢不能，充满了深厚的人文关怀，文明社会中的每个成员都应该阅读。———《华尔街日报》
+★《大英博物馆世界简史》以一种前所未有的视角，加之丰富的想象力，通过100件极具代表性的文物穿越时空，娓娓解读人类200万余年文明历史。"
+  image_url: "daying.jpg"
+  price: 108.80
+  category_id: 3
+shiji:
+  id: 6
+  title: "史记（精装全三册）"
+  description: "《史记》是由司马迁撰写的中国第一部纪传体通史。《史记》最初没有固定书名，或称“太史公书”，或称“太史公传”，也省称“太史公”。“史记”本是古代史书通称，从三国时期开始，“史记”由史书的通称逐渐成为“太史公书”的专称。该书记载了上自上古传说中的黄帝时代，下至汉武帝元狩元年间共3000多年的历史。与后来的《汉书》、《后汉书》、《三国志》合称“前四史”。《史记》参考了众多典籍，如《左传》、《国语》、《世本》、《战国策》、《楚汉春秋》和诸子百家等，同时参考档案、民间古文书籍。司马迁还亲自采访，进行实地调查。"
+  image_url: "shiji.jpg"
+  price: 58.80
+  category_id: 3
+tongjian:
+  id: 7
+  title: "资治通鉴(全四册) "
+  description: "
+《资治通鉴》是司马光及其助刘攽、刘怒、范祖禹等根据大量的史料编纂而成的一部编年体史书，记载了上起周威烈士二十三年（公元前403年），下讫后周世宗显德六年（公元959年）共1362年的历史。书中描绘了战略至五代期间的历史发展脉络，探讨了秦、汉、晋、隋、唐等统一的王朝和战国七雄、魏蜀吴三国、五胡十六国、南北朝、五代十国等几十个政权的盛衰之由，生动地刻画了帝王将相们的为政治国、待人处世之道，以及他们在历史旋涡中的生死悲欢。
+《资治通鉴》为我国第一部编年体通史，上起周威烈王二十三年（前403年），下迄周世宗显德六年（959年），16朝1362年史事囊括无遗，备受历代统治者及文人学士兵青睐，视之为必读之书。
+　　司马光（1019—1086），字君实，陕州夏县（今山西夏县）人。他爱好历史，出仕以后，仍治史不懈。治平三年（1066年），司马光撰成一部战国至秦共八卷本的编年史，名为《通志》，进呈宋英宗，英宗命其设局续修。此后，司马光无论在政治上如何进退沉浮，书局一直随身而设。1067年神宗即位，开经筵，司马光进读《通志》，神宗以其“鉴于往事，有资于治道”，命名为《资治通鉴》。王安石行新政时，司马光竭力反对，被任命为枢密事使而坚辞不就，于熙宁三年（1070年）出知永兴军（今陕西西安）。次年退居洛阳，专心编撰《资治通鉴》，至元丰七年（1084年）成书。从治平三年开局，至此共用了19年的时间。 "
+  image_url: "tongjian.jpg"
+  price: 101.10
+  category_id: 3
+shuhua:
+  id: 8
+  title: "书画印艺的象与神"
+  description: "艺术史的发展有规律吗？为什么文人要革“文人画”的命？书法是任意挥洒的艺术，还是必须遵守的法则？那些经典作品的背后，隐藏着什么样的文化政治内涵？怎样欣赏作为篆刻艺术的印章？青年学者谷卿将以自己独到的体悟、剖析和研究回答这些问题，同时像导游一样，带领读者共同感知传统艺术的魅力，探索黑白与阴阳世界的隐秘，展开一场“游于艺”的纸上行旅。"
+  image_url: "shuhua.jpg"
+  price: 172.66
+  category_id: 3
+maocheng:
+  id: 9
+  title: "猫乘 猫苑"
+  description: "高傲冷艳的喵星人是最受欢迎的宠物之一。本书分7部分，“种类”、“形象”、“毛色”、“灵异”、“名物”、“故事”、“品藻”。广收中国历代有关猫的典故、寓言及传说，最宝贵的是辑录了古代多已失传的《相猫经》。虞晓白校注的《猫苑猫乘》收录了这兩篇清代经典猫驯养著作。了解古代铲屎官的日常。"
+  image_url: "maocheng.jpg"
+  price: 19.50
+  category_id: 3
+ServiceWorker:
+  id: 10
+  title: "Service Worker Development Cookbook"
+  description: "It would be nice to have web apps that work offline and send push notifications. This is now possible with Service Workers, which can add native-like functionality to your web apps without requiring a download.
+This book will get your mobile and web apps functioning without Internet connectivity, improve performance and network interaction in order to increase the level of availability, and show you how to build performant applications that seamlessly integrate with third-party APIs.
+We’ll show you how to add Service Worker functionality to web apps and sites, access offline content through basic and advanced techniques, and build powerful interactive system notifications. We’ll also teach you about cache functionality and assets to provide immediate load even over narrow connections. We conclude by giving you various tips to improve app performance, including the background sync technique.
+By the end of this book, you’ll know build high performing and faster web and mobile applications with Service Workers."
+  image_url: "ServiceWorker.jpg"
+  price: 59.50
+  category_id: 3
+Bootstrap:
+  id: 11
+  title: "Learning Bootstrap 4, 2nd Edition"
+  description: "Bootstrap, the most popular front-end framework built to design elegant, powerful, and responsive interfaces for professional-level web pages has undergone a major overhaul. Bootstrap 4 introduces a wide range of new features that make front-end web design even simpler and exciting.
+In this gentle and comprehensive book, we’ll teach you everything that you need to know to start building websites with Bootstrap 4 in a practical way. You’ll learn about build tools such as Node, Grunt, and many others. You’ll also discover the principles of mobile-first design in order to ensure your pages can fit any screen size and meet the responsive requirements. Learn to play with Bootstrap’s grid system and base CSS to ensure your designs are robust and that your development process is speedy and efficient. Then, you’ll find out how you can extend your current build with some cool JavaScript Plugins, and throw in some Sass to spice things up and customize your themes. This book will make sure you’re geared up and ready to build amazingly beautiful and responsive websites in a jiffy."
+  image_url: "bootstrap.jpg"
+  price: 68.89
+  category_id: 3

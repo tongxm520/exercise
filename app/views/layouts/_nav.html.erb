@@ -1,0 +1,58 @@
+<nav class="top-bar animate-dropdown">
+<div class="container">
+    <div class="col-xs-12 col-sm-6 no-margin">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li class="dropdown">
+                <a href="#change-colors" data-toggle="dropdown" class="custom-ion-chevron-down">Change Colors</a>
+
+                <ul role="menu" class="dropdown-menu">
+                    <li role="presentation"><a title="Green color" href="#" tabindex="-1" class="changecolor green-text" role="menuitem">Green</a></li>
+                    <li role="presentation"><a title="Blue color" href="#" tabindex="-1" class="changecolor blue-text" role="menuitem">Blue</a></li>
+                    <li role="presentation"><a title="Red color" href="#" tabindex="-1" class="changecolor red-text" role="menuitem">Red</a></li>
+                    <li role="presentation"><a title="Orange color" href="#" tabindex="-1" class="changecolor orange-text" role="menuitem">Orange</a></li>
+                    <li role="presentation"><a title="Navy color" href="#" tabindex="-1" class="changecolor navy-text" role="menuitem">Navy</a></li>
+                    <li role="presentation"><a title="Darkgreen color" href="#" tabindex="-1" class="changecolor dark-green-text" role="menuitem">Dark Green</a></li>
+                </ul>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            
+        </ul>
+    </div>
+    <!-- /.col -->
+
+    <div class="col-xs-12 col-sm-6 no-margin">
+        <ul class="right">
+            <li class="dropdown">
+                <a href="#change-language" data-toggle="dropdown" class="custom-ion-chevron-down">English</a>
+                <ul role="menu" class="dropdown-menu">
+                    <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Turkish</a></li>
+                    <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Tamil</a></li>
+                    <li role="presentation"><a href="#" tabindex="-1" role="menuitem">French</a></li>
+                    <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Russian</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#change-currency" data-toggle="dropdown" class="custom-ion-chevron-down">Dollar (US)</a>
+                <ul role="menu" class="dropdown-menu">
+                    <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Euro (EU)</a></li>
+                    <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Turkish Lira (TL)</a></li>
+                    <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Indian Rupee (INR)</a></li>
+                    <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Dollar (US)</a></li>
+                </ul>
+            </li>
+            <%if !logged_in?%>
+            <li><a href="javascript:void(0);">Register</a></li>
+            <li><a href="/login">Login</a></li>
+            <%else%>
+            <li><a href="/logout">Logout</a></li>
+            <%end%>
+        </ul>
+    </div>
+    <!-- /.col -->
+</div>
+<!-- /.container -->
+</nav>
+

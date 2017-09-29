@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Exercise</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "scaffolds" %>
+  <%= stylesheet_link_tag "exercise" %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body id="store">
+  <div id="banner">
+    <%= image_tag( "logo.png" ) %>
+    <%= @page_title || "Pragmatic Bookshelf" %>
+  </div>
+  <div id="columns">
+    <div id="side">           
+      <div style="clear:both"></div>
+      
+      <%= link_to 'Home', store_path,:class=>"nav-link" %><br />
+      <a class="nav-link" href="javascript:void(0);">Questions</a><br />
+      <a class="nav-link" href="javascript:void(0);">News</a><br />
+      <a class="nav-link" href="javascript:void(0);">Contact</a><br />
+      <% if session[:customer_id] %>
+        <br />
+        <%= link_to 'Admin', admin_path,:class=>"nav-link" %><br />
+        <%= link_to 'Orders', orders_path,:class=>"nav-link" %><br />
+        <%= link_to 'Products', products_path,:class=>"nav-link" %><br />
+        <%= link_to 'Users', customers_path,:class=>"nav-link" %><br />
+        <br />
+        <%= link_to 'Logout', logout_path,:class=>"nav-link" %>
+      <% end %>
+    </div>
+    <div id="main">
+      <%= yield %>
+    </div>
+  </div>
+</body>
+<div id="dialog-confirm" title="确认对话框" style="display:none;">
+  <div id="confirm-imgs"><img src="/assets/tips.png" ></div>
+  <div id="dialog-confirm-content">These items will be permanently deleted and cannot be recovered. Are you sure?</div>
+</div>
+</html>

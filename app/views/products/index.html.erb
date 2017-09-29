@@ -1,0 +1,86 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<%= link_to 'New product', new_product_path %>
+<br />
+<div id="product-list">
+  <h1>Listing products</h1>
+  <table id="products-table">
+  <%= render :partial => "products_list" %>
+  </table>
+  
+  <%if @page%>
+  <div id="btn-container" class="btn-container" data-page="<%=@page%>" >
+    <button class="btn-more">More Products</button>
+  </div>
+  <%end%>
+</div>
+
+<style type="text/css">
+.btn-container{
+  position: relative;
+  width: 100%;
+}
+
+.btn-more{
+  background: #114411 none repeat scroll 0 0;
+  border-radius: 40px;
+  box-shadow: 0 2px 10px 0 #2d2e33;
+  color: #fff;
+  display: inline-block;
+  font-size: 20px;
+  padding: 3px 5px;
+  width: 200px;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  position: absolute;
+  margin: auto;
+  left:0;
+  right:0;
+}
+
+.loading{
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  margin: auto;
+  left:0;
+  right:0;
+}
+</style>
+<script type="text/javascript">
+(function($){
+  $(".btn-container .btn-more").click(function(){
+		load_more();  
+  });
+})(jQuery);
+
+var load_more=function(){
+  var page = $("#btn-container").attr("data-page");
+	var data = {"page": page,"authenticity_token": "<%=form_authenticity_token%>"};
+	$.ajax({
+	  type: 'post',
+		url: '/products/load_more',
+		data: JSON.stringify(data),
+		contentType: "application/json;charset=utf-8",
+		dataType: 'script',
+		beforeSend: function() {
+		  $(".btn-container").html($("<img src='/assets/loading.gif'>").addClass("loading"));   
+		}
+	}).complete(function() {
+		$(".btn-container").html('<button class="btn-more">More Products</button>');
+    $(".btn-container .btn-more").click(function(){
+		  load_more();  
+    });    
+	});
+};
+</script>
+
+
+
+
+  

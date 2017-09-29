@@ -1,0 +1,90 @@
+<div class="animate-dropdown">
+    <!-- ========= BREADCRUMB ====================== -->
+    <div id="top-mega-nav">
+        <div class="container">
+            <nav>
+                <ul class="inline">
+                    <%=render :partial => "categories/department" %>
+                    <li class="breadcrumb-nav-holder">
+											<ul>
+													<li class="breadcrumb-item current gray">
+															<a href="#">shopping cart</a>
+													</li>
+											</ul>
+									</li>
+                </ul>
+                <!-- /.inline -->
+            </nav>
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#top-mega-nav -->
+    <!-- =============== BREADCRUMB : END =============== -->
+</div>
+
+<section id="cart-page">
+  <div class="container" id="cart-container">
+    <%= render :partial => "shopping_cart", :locals => { :cart => @shopping_cart } %>
+  </div>
+</section>
+<div id="info-dialog" title="Basic dialog" style="display:none;font-size:18px;font-weight:700;">
+  <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+</div>
+
+<style type="text/css">
+.remove-btn {
+	display: inline-block;
+	position: absolute;
+	right: 1%;
+	top: 39%;
+}
+
+#cart-page .items-holder .remove-btn:after {
+  color: #3d3d3d;
+}
+
+.le-quantity .custom-ion-minus:after, .le-quantity .custom-ion-android-add:after {
+    font-size: 14px;
+    font-weight: bold;
+    height: 10px;
+    width: 10px;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.le-quantity .custom-ion-minus, .le-quantity .custom-ion-android-add{
+    background-color: #f9f9f9;
+    height: 100%;
+    padding: 3px 14px;
+    position: absolute;
+    top: 0;
+    width: 5px;
+}
+
+.le-quantity .custom-ion-minus,
+.le-quantity .custom-ion-minus:after, 
+.le-quantity .custom-ion-android-add,
+.le-quantity .custom-ion-android-add:after{
+    color: #3d3d3d;
+    transition: all 0.3s ease 0s;
+}
+
+.le-quantity .custom-ion-minus {
+    border-right: 1px solid #e0e0e0;
+    left: 0;
+}
+
+.le-quantity .custom-ion-android-add {
+    border-left: 1px solid #e0e0e0;
+    right: 0;
+}
+
+</style>
+<script type="text/javascript">
+
+</script>

@@ -1,0 +1,8 @@
+$('#products-table').append("<%= escape_javascript(render :partial => "products_list") %>");
+<%if @page%>
+$('#btn-container').attr("data-page","<%=@page%>");
+<%else%>
+$('#btn-container').remove();
+<%end%>
+
+

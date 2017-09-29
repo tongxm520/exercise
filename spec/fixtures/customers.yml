@@ -1,0 +1,19 @@
+<% SALT = "NaCl" unless defined?(SALT) %>
+one:
+  id: 1
+  user_name: drowned_fish
+  first_name: John
+  last_name: Smith
+  email: "john@gmail.com"
+  hashed_password: <%= Customer.encrypt_password('9655234', SALT) %>
+  salt: <%= SALT %>
+two:
+  id: 2
+  user_name: flying_kite
+  first_name: Peter
+  last_name: Swift
+  email: "peter@163.com"
+  hashed_password: <%= Customer.encrypt_password('admin123', SALT) %>
+  salt: <%= SALT %>
+
+

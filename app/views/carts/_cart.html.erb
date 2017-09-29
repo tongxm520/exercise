@@ -1,0 +1,21 @@
+<% unless cart.line_items.empty?%>
+<ul class="dropdown-menu">
+    <%= render :partial => "line_items/line_item", :collection => cart.line_items.order("line_items.id") %>
+    
+    <li class="checkout">
+        <div class="basket-item">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <a class="le-button inverse" href="<%=cart_path(cart)%>">View cart</a>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <a class="le-button" href="<%=new_order_url%>">Checkout</a>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+<%end%>
+
+
+

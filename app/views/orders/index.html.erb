@@ -1,0 +1,30 @@
+<h1>Listing orders</h1>
+
+<table>
+  <tr>
+    <th>Street</th>
+    <th>Town</th>
+    <th>Zip</th>
+    <th>Pay type</th>
+    <th>Phone</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td><%= order.street %></td>
+    <td><%= order.town %></td>
+    <td><%= order.zip %></td>
+    <td><%= order.pay_type %></td>
+    <td><%= order.phone %></td>
+    <td><%= link_to 'Show', order %></td>
+    <td><%= link_to 'Edit', edit_order_path(order) %></td>
+    <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+
+

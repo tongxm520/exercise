@@ -1,0 +1,116 @@
+:css 
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		padding: 2em;
+	}
+
+	.nav {
+		width: 800px;
+		margin: 0 auto;
+		position: relative;
+
+		ul {
+		  margin: 0;
+		  padding: 0;
+		  width: 200px;
+		  background: #eee;
+		}
+
+		li {
+		  display: block;
+		  padding: 0;
+		  border-bottom: 1px solid #fff;
+		}
+		
+		a {
+		  display: block;
+		  padding: 0.5em 1em;
+		  color: #333;
+		  text-decoration: none;
+		  &.hover,
+		  &:hover {
+		    background: #333;
+		    color: #fff;
+		  }
+		}
+
+		ul ul {
+		  display: none;
+		  position: absolute;
+		  top: 0;
+		  left: 200px;
+		  background: #ddd;
+		}
+
+		ul ul ul {
+		  background: #ccc;
+		}
+
+		ul ul ul ul {
+		  background: #bbb;
+		}
+	}
+
+%nav{:class => "nav"}
+  %ul
+    - (1...6).each do |i|
+      %li
+        %a= i
+        %ul
+          - (6...11).each do |j|
+            %li
+              %a= i*j
+              %ul
+                - (6...11).each do |k|
+                  %li
+                    %a= i*j*k
+                    %ul
+                      - (6...11).each do |l|
+                        %li
+                          %a= i*j*k*l
+
+:javascript
+  var request={
+    requester_name:"#{current_user.first_name + ' ' + current_user.last_name if current_user}",
+    requester_email:"#{current_user.email if current_user}"
+  };
+
+	var $menu = $('.nav ul');
+
+	$menu.menuAim({
+		activate: activateSubmenu,
+		deactivate: deactivateSubmenu
+	});
+
+	function activateSubmenu(row) {
+		var $row = $(row),
+		    $submenu = $row.children('ul');
+
+		$row.children('a').addClass('hover');
+		$submenu.css({display: 'block'});
+	}
+
+	function deactivateSubmenu(row) {
+		var $row = $(row),
+			$submenu = $row.children('ul');
+		$row.find('a').removeClass('hover');
+		$submenu.css('display', 'none');
+	}
+
+	$(document).click(function() {
+		$('a.hover').removeClass('hover');
+		$('.popover').css('display', 'none');
+	});
+
+  var authenticity_token = '#{form_authenticity_token}';
+  $('#data_items_total .query-year').change(function(e) {
+    $.ajax({
+      type: "GET",
+      dataType: "script",
+      url: "#{company_client_data_items_path(client)}" + "?query_year=" + encodeURIComponent($(e.target).val()) + '&authenticity_token=' + encodeURIComponent(authenticity_token),
+      });
+  });
+

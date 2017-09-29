@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Exercise</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+
+  <%= stylesheet_link_tag "bootstrap.origin" %>
+  <%= stylesheet_link_tag "store" %>
+  <%= stylesheet_link_tag "green" %>
+  <%= stylesheet_link_tag "css/ionicons" %>
+  <%= stylesheet_link_tag "owl.carousel" %>
+  <%= stylesheet_link_tag "flexslider.min" %>
+  <%= javascript_include_tag "jquery.menu-aim" %>
+  <%= javascript_include_tag "owl.carousel.min" %>
+  <%= javascript_include_tag "jquery.raty.min" %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="wrapper">
+    <%=render :partial => "layouts/nav" %>
+    <%=render :partial => "layouts/header" %>
+  </div>
+  <%= yield %>
+  <div class="modal"><!-- Place at bottom of page --></div>
+</body>
+<div id="dialog-confirm" title="确认对话框" style="display:none;">
+  <div id="confirm-imgs"><img src="/assets/tips.png" ></div>
+  <div id="dialog-confirm-content">These items will be permanently deleted and cannot be recovered. Are you sure?</div>
+</div>
+</html>
+
+<style type="text/css">
+.custom-ion-chevron-down:after {
+  margin-left: 5px;
+}
+.container a:hover {
+  text-decoration: none;
+}
+
+.top-cart-row-container .top-cart-holder .total-price-basket .total-price .value{
+  font-size: 14px;
+}
+
+.search-area .control-group .search_btn{
+  vertical-align: middle !important;
+  display: inline-block;
+  color: #fff;
+  font: 25px/25px FontAwesome;
+  text-rendering: auto;
+  background-color: #59b210;
+  border-radius: 0 5px 5px 0;
+  float: right;
+  margin: -3px -3px 0 0;
+  padding: 15px 15px 13px;
+  text-align: center;  
+}
+
+header .top-cart-row .top-cart-holder .basket-item .close-button::before,
+header .top-cart-row .top-cart-holder .basket-item .close-button:before{
+    color: #3d3d3d;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1;
+    position: absolute;
+    right: 8%;
+    top: 41%;
+}
+
+.open > #cart > .dropdown-menu {
+  display: block;
+}
+
+#top-mega-nav nav > ul > li .custom-ion-chevron-down:after {
+  vertical-align: middle !important;
+  font-size: 20px;
+  color: #fff;
+  display: inline-block;
+  line-height: 15px;
+  margin: 0;
+}
+
+.custom-ion-chevron-down::before, .custom-ion-chevron-down::after ,
+.custom-ion-chevron-down:before, .custom-ion-chevron-down:after {
+    z-index: 100;
+}
+
+#top-mega-nav nav > ul > li .custom-ion-chevron-down {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 19px 17px;
+  text-transform: capitalize;
+  display: inline-block;
+  /*if display inline,the box become small*/
+}
+
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modal {
+    display:none;
+    position:fixed;
+    z-index:1000;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background: rgba(255, 255, 255, .8) url('/assets/loading.gif') 50% 50% no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+
+#dialog-confirm #confirm-imgs{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#dialog-confirm #confirm-imgs img{
+    width:60px;
+    height:60px;
+}
+
+#dialog-confirm #dialog-confirm-content{
+    display: inline-block;
+}
+#dialog-confirm-content {
+    font-size:16px;
+}
+
+
+</style>
+
+<script type="text/javascript">
+$(document).ready(function() {	
+  $('.flexslider').flexslider({
+    animation: "slide",
+		controlNav: true,    
+		directionNav: false
+	});
+
+  $(".top-cart-holder > .basket > .dropdown-toggle").click(function(){
+    if($(this).attr("aria-expanded")===undefined||$(this).attr("aria-expanded")==="false"){
+      $(this).attr("aria-expanded","true");
+      $(".top-cart-holder > .basket").addClass("open");
+    }else if($(this).attr("aria-expanded")==="true") {
+      $(this).attr("aria-expanded","false");
+      $(".top-cart-holder > .basket").removeClass("open");
+    }
+  });
+
+  // Data Placeholder for custom controls
+  $('[data-placeholder]').focus(function() {
+    var input = $(this);
+    if (input.val() == input.attr('data-placeholder')) {
+      input.val('');
+    }
+  }).blur(function() {
+    var input = $(this);
+    if (input.val() === '' || input.val() == input.attr('data-placeholder')) {
+      input.addClass('placeholder');
+      input.val(input.attr('data-placeholder'));
+    }
+  }).blur();
+
+  $('[data-placeholder]').parents('form').submit(function() {
+    $(this).find('[data-placeholder]').each(function() {
+      var input = $(this);
+      if (input.val() == input.attr('data-placeholder')) {
+        input.val('');
+      }
+    });
+  });
+
+  /*=======================================================*/
+  /*  STAR RATING
+  /*============================================================*/
+  if ($('.star').length > 0) {
+    $('.star').each(function() {
+      var $star = $(this);
+
+      if ($star.hasClass('big')) {
+        $star.raty({
+          starOff: '/assets/star-big-off.png',
+          starOn: '/assets/star-big-on.png',
+          space: false,
+          score: function() {
+            return $(this).attr('data-score');
+          }
+        });
+      } else {
+        $star.raty({
+          starOff: '/assets/star-off.png',
+          starOn: '/assets/star-on.png',
+          space: false,
+          score: function() {
+            return $(this).attr('data-score');
+          }
+        });
+      }
+    });
+  }
+});
+</script>

@@ -1,0 +1,205 @@
+<div class="col-xs-12 col-sm-9 no-margin wide sidebar">
+    <section class="carousel-holder hover small" id="recommended-products">
+      <div class="title-nav">
+          <h2 class="inverse">Recommended Products</h2>
+          <div class="nav-holder">
+              <a class="slider-prev btn-prev fa ion-chevron-left" data-target="#owl-recommended-products" href="javascript:void(0);"></a>
+              <a class="slider-next btn-next fa ion-chevron-right" data-target="#owl-recommended-products" href="javascript:void(0);"></a>
+          </div>
+      </div>
+      <!-- /.title-nav -->
+      <%=render :partial => "recommended" %>
+    </section>
+    <!-- /.carousel-holder -->
+
+    <section id="gaming">
+        <div class="grid-list-products">
+            <h2 class="section-title">Gaming</h2>
+
+            <div class="control-bar">
+                <div class="select-player custom-ion-chevron-down" id="popularity-sort">
+                    <select data-placeholder="sort by popularity" class="hasCustomSelect" style="width: 188px; position: absolute; opacity: 0; height: 19px; font-size: 13px;top:12px;left:0;">
+                        <option value="1">1-100 players</option>
+                        <option value="2">101-200 players</option>
+                        <option value="3">200+ players</option>
+                    </select><span class="le-select-in" style="display: inline-block;"><span class="le-select-inInner" style="width: 188px; display: inline-block;">1-100 players</span></span>
+                </div>
+
+                <div class="select-player custom-ion-chevron-down" id="item-count">
+                    <select class="hasCustomSelect" style="width: 122px; position: absolute; opacity: 0; height: 19px; font-size: 13px;top:12px;left:0;">
+                        <option value="1">24 per page</option>
+                        <option value="2">48 per page</option>
+                        <option value="3">32 per page</option>
+                    </select><span class="le-select-in" style="display: inline-block;"><span class="le-select-inInner" style="width: 100px; display: inline-block;">24 per page</span></span>
+                </div>
+
+                <div class="grid-list-buttons">
+                    <ul>
+                        <li id="show-grid" class="grid-list-button-item active"><a href="javascript:void(0);" data-toggle="tab"><i class="glyphicon glyphicon-th"></i> Grid</a></li>
+                        <li id="show-list" class="grid-list-button-item "><a href="javascript:void(0);" data-toggle="tab"><i class="glyphicon glyphicon-th-list"></i> List</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.control-bar -->
+
+            <div class="tab-content">
+                <div class="products-grid fade tab-pane in active" id="grid-view">
+
+                    <div class="product-grid-holder">
+                        <div class="row no-margin"> 
+                            <%@products.each do |p| %>                          
+                            <div class="col-xs-12 col-sm-4 no-margin product-item-holder hover">
+                                <div class="product-item">
+                                    <div class="ribbon red"><span>sale</span></div>
+                                    <div class="ribbon green"><span>bestseller</span></div>
+                                    <div class="image">
+                                        <!--img src="/assets/products/product-04.jpg" alt=""-->
+                                        <%= image_tag(p.image_url,:class=> "product-grid-image") %>
+                                    </div>
+                                    <div class="body">
+                                        <!--div class="label-discount clear"></div-->
+                                        <div class="label-discount green">-50% sale</div>
+                                        <div class="title">
+                                            <a href="single-product.html"><%=p.title%></a>
+                                        </div>
+                                        <div class="brand">acer</div>
+                                    </div>
+                                    <div class="prices">
+                                        <div class="price-prev"><%=p.price%></div>
+                                        <div class="price-current pull-right"><%=p.price%></div>
+                                    </div>
+                                    <div class="hover-area">
+                                        <div class="add-cart-button">
+                                            <a data-index="<%=p.id%>" class="le-button" href="javascript:void(0);">add to cart</a>
+                                        </div>
+                                        <div class="wish-compare">
+                                            <a href="#" class="fa ion-heart">add to wishlist</a>
+                                            <a href="#" class="fa ion-arrow-swap">compare</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.product-item -->
+                            </div>
+                            <%end%>
+                            <!-- /.product-item-holder -->                   
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.product-grid-holder -->
+
+                    <div class="pagination-holder">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 text-left">
+                                <ul class="pagination ">
+                                    <li class="current"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">next</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="result-counter">
+                                    Showing <span>1-9</span> of <span>11</span> results
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.pagination-holder -->
+                </div>
+                <!-- /.products-grid #grid-view -->
+
+                <div class="products-grid fade tab-pane " id="list-view">
+                    <div class="products-list"> 
+                        <%@products.each do |p| %>                       
+                        <div class="product-item product-item-holder">
+                            <div class="ribbon red"><span>sale</span></div>
+                            <div class="ribbon blue"><span>new!</span></div>
+                            <div class="row">
+                                <div class="no-margin col-xs-12 col-sm-4 image-holder">
+                                    <div class="image">
+                                        <!--img src="/assets/products/product-02.jpg" alt=""-->
+                                        <%= image_tag(p.image_url,:class=> "product-grid-image") %>
+                                    </div>
+                                </div>
+                                <!-- /.image-holder -->
+                                <div class="no-margin col-xs-12 col-sm-5 body-holder">
+                                    <div class="body">
+                                        <div class="label-discount clear"></div>
+                                        <div class="title">
+                                            <a href="single-product.html"><%=p.title%></a>
+                                        </div>
+                                        <div class="brand">sony</div>
+                                        <div class="excerpt">
+                                            <div class="star-holder">
+                                                <div data-score="4" class="star" style="cursor: pointer; width: 80px;">
+                                                    <input type="hidden" name="score" value="4">
+                                                </div>
+                                            </div>
+                                            <p><%= truncate(strip_tags(p.description),
+  :length => 80) %></p>
+                                        </div>
+                                        <div class="addto-compare">
+                                            <a href="#" class="fa ion-arrow-swap">add to compare list</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.body-holder -->
+                                <div class="no-margin col-xs-12 col-sm-3 price-area">
+                                    <div class="right-clmn">
+                                        <div class="price-current"><%=p.price%></div>
+                                        <div class="price-prev"><%=p.price%></div>
+                                        <!--div class="availability">
+                                            <label>availability:</label><span class="not-available">out of stock</span></div-->
+                                        <div class="availability"><label>availability:</label><span class="available">in stock</span></div>
+                                        <!--a href="#" class="le-button disabled">add to cart</a-->
+                                        <a data-index="<%=p.id%>" href="javascript:void(0);" class="le-button">add to cart</a>
+                                        <a href="#" class="fa ion-heart">add to wishlist</a>
+                                    </div>
+                                </div>
+                                <!-- /.price-area -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <%end%>
+                        <!-- /.product-item -->                        
+                    </div>
+                    <!-- /.products-list -->
+
+                    <div class="pagination-holder">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 text-left">
+                                <ul class="pagination">
+                                    <li class="current"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">next</a></li>
+                                </ul>
+                                <!-- /.pagination -->
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="result-counter">
+                                    Showing <span>1-9</span> of <span>11</span> results
+                                </div>
+                                <!-- /.result-counter -->
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.pagination-holder -->
+
+                </div>
+                <!-- /.products-grid #list-view -->
+
+            </div>
+            <!-- /.tab-content -->
+        </div>
+        <!-- /.grid-list-products -->
+
+    </section>
+    <!-- /#gaming -->
+</div>

@@ -1,0 +1,185 @@
+<!-- ============== CONTENT ============== -->
+<div class="col-xs-12 col-md-9 items-holder no-margin">
+    <%cart.line_items.order("line_items.id").each do |item| %>
+    <div id="cart-item-<%=item.id%>" class="row no-margin cart-item">
+        <div class="col-xs-12 col-sm-2 no-margin">
+            <a class="thumb-holder" href="#">
+                <img src="/assets/product-small-01.jpg" alt="" class="lazy">
+            </a>
+        </div>
+
+        <div class="col-xs-12 col-sm-5">
+            <div class="title">
+                <a href="#"><%=item.product.title%></a>
+            </div>
+            <div class="brand">sony</div>
+        </div>
+
+        <div class="col-xs-12 col-sm-3 no-margin">
+            <div class="quantity">
+                <div class="le-quantity">
+                  <a data-info="the last item can't be reduced!" id="reduce-<%=item.id%>" href="javascript:void(0);" class="custom-ion-minus"></a>
+                  <input id="<%=item.id%>" type="text" value="<%=item.quantity%>" readonly="readonly">
+                  <a data-info="item quantity must greater than 0!" id="add-<%=item.id%>" href="javascript:void(0);" class="custom-ion-android-add"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-2 no-margin">
+            <div class="price">
+                <%=number_to_currency(item.total_price)%>
+            </div>
+            <a id="remove-<%=item.id%>" href="javascript:void(0);" class="custom-ion-close remove-btn"></a>
+        </div>
+    </div>
+    <!-- /.cart-item -->
+    <%end%>
+</div>
+<!-- ========= CONTENT : END ============== -->
+
+<!-- ================ SIDEBAR=== -->
+
+<div class="col-xs-12 col-md-3 no-margin sidebar ">
+    <div class="widget cart-summary">
+        <h1 class="border">shopping cart</h1>
+        <div class="body">
+            <ul class="tabled-data no-border inverse-bold">
+                <li>
+                    <label>cart subtotal</label>
+                    <div id="cart-subtotal" class="value pull-right"><%=number_to_currency(cart.total_price)%></div>
+                </li>
+                <li>
+                    <label>shipping</label>
+                    <div class="value pull-right">free shipping</div>
+                </li>
+            </ul>
+            <ul class="tabled-data inverse-bold no-border" id="total-price">
+                <li>
+                    <label>order total</label>
+                    <div id="order-total" class="value pull-right"><%=number_to_currency(cart.total_price)%></div>
+                </li>
+            </ul>
+            <div class="buttons-holder">
+                <a href="<%=new_order_url%>" class="le-button big">checkout</a>
+                <a href="/" class="simple-link block">continue shopping</a>
+            </div>
+        </div>
+    </div>
+    <!-- /.widget -->
+
+    <div class="widget" id="cupon-widget">
+        <h1 class="border">use coupon</h1>
+        <div class="body">
+            <form>
+                <div class="inline-input">
+                    <input type="text" data-placeholder="enter coupon code" class="placeholder">
+                    <button type="submit" class="le-button">Apply</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- /.widget -->
+</div>
+<!-- /.sidebar -->
+
+<!-- ================== SIDEBAR : END =========== -->
+
+<script type="text/javascript">
+$body = $("body");
+
+(function($){
+  var minus=$(".items-holder .cart-item .quantity .le-quantity .custom-ion-minus");
+  var add=$(".items-holder .cart-item .quantity .le-quantity .custom-ion-android-add");
+  for(var i=0;i<minus.length;i++){
+    $(minus[i]).click(function(){
+      var id=this.id.split("-")[1];
+      var quantity=document.getElementById(id).value;
+      if(parseInt(quantity,10)>1){
+        change_quantity("reduce",id,quantity);
+      }else{
+        showInfoDialog(this.getAttribute("data-info"));
+      }
+    });
+  }
+
+  $infoDialog = jQuery('#info-dialog');
+  $infoDialog.dialog({ 
+    resizable: false,
+    height: "auto",
+    width: 400,
+    modal: true,
+    autoOpen: false,
+    title:'info dialog',
+    overlay: { opacity: 0.5, background: 'black'},
+    show: {
+	    effect: "blind",
+	    duration: 1000
+	  },
+	  hide: {
+	    effect: "explode",
+	    duration: 1000
+	  }
+  });
+
+  for(var i=0;i<add.length;i++){
+    $(add[i]).click(function(){
+      var id=this.id.split("-")[1];
+      var quantity=document.getElementById(id).value;
+      if(parseInt(quantity,10)>0){
+        change_quantity("add",id,quantity);
+      }else{
+        showInfoDialog(this.getAttribute("data-info"));
+      }
+    });
+  }
+
+  var removes=$(".items-holder .cart-item .remove-btn");
+  for(var i=0;i<removes.length;i++){
+    $(removes[i]).click(function(){
+      var id=this.id.split("-")[1];
+      $.ajax({
+				type: 'delete',
+				url: '/line_items/'+id,
+				dataType: 'script',				
+				beforeSend: function() {
+				  $body.addClass("loading");   
+				}
+			}).complete(function() {
+				$body.removeClass("loading");    
+			});
+    });
+  }
+})(jQuery);
+
+
+var change_quantity=function(action,id,quantity){
+  var data = {"quantity": quantity, "authenticity_token": "<%=form_authenticity_token%>"};
+
+  $.ajax({
+		type: 'post',
+		url: '/line_items/'+id+'/'+action,
+		data: JSON.stringify(data),
+    contentType: "application/json;charset=utf-8",
+		dataType: 'script',
+		success: function(result,status){
+    },
+    error: function(error) {
+    },
+    beforeSend: function() {
+      $body.addClass("loading");   
+    }
+  }).complete(function() {
+    $body.removeClass("loading");    
+  });
+};
+
+var showInfoDialog= function(msg){
+  $("#info-dialog").html(msg);
+  $infoDialog.show(); 
+  $infoDialog.dialog("open");
+};
+
+
+</script>
+
+

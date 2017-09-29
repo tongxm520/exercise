@@ -1,0 +1,117 @@
+<div class="col-xs-12 col-sm-3 no-margin sidebar narrow">
+    <!-- =========== PRODUCT FILTER ======================== -->
+    <div class="widget">
+        <h1>Product Filters</h1>
+        <div class="body bordered">
+            <div class="category-filter">
+                <h2>Brands</h2>
+                <hr>
+                <ul>
+                    <li>
+                        <input type="checkbox" class="le-checkbox" checked="checked"><i class="fake-box"></i>
+                        <label>Samsung</label> <span class="pull-right">(2)</span></li>
+                    <li>
+                        <input type="checkbox" class="le-checkbox"><i class="fake-box"></i>
+                        <label>Dell</label> <span class="pull-right">(8)</span></li>
+                    <li>
+                        <input type="checkbox" class="le-checkbox"><i class="fake-box"></i>
+                        <label>Toshiba</label> <span class="pull-right">(1)</span></li>
+                    <li>
+                        <input type="checkbox" class="le-checkbox"><i class="fake-box"></i>
+                        <label>Apple</label> <span class="pull-right">(5)</span></li>
+                </ul>
+            </div>
+            <!-- /.category-filter -->
+
+            <div class="price-filter">
+                <h2>Price</h2>
+                <hr>
+                <div class="price-range-holder">
+
+                    <div class="slider slider-horizontal" style="width: 202px;">
+                        <div class="slider-track">
+                            <div class="slider-selection" style="left: 0%; width: 50%;"></div>
+                            <div class="slider-handle" style="left: 0%;"></div>
+                            <div class="slider-handle" style="left: 50%;"></div>
+                        </div>
+                        <div class="tooltip bottom top" style="top: -30px; left: 22.75px;">
+                            <div class="tooltip-arrow"></div>
+                            <div class="tooltip-inner">100 : 400</div>
+                        </div>
+                        <input type="text" value="" class="price-slider" style="">
+                    </div>
+
+                    <span class="min-max">Price: $89 - $2899</span>
+                    <span class="filter-button">
+                      <a href="#">Filter</a>
+                    </span>
+                </div>
+            </div>
+            <!-- /.price-filter -->
+
+        </div>
+        <!-- /.body -->
+    </div>
+    <!-- /.widget -->
+    <!--=============== PRODUCT FILTER : END ============== -->
+
+    <div class="widget">
+        <h1 class="border">special offers</h1>
+        <ul class="product-list">
+            <%5.times do %>
+            <li>
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 no-margin">
+                        <a class="thumb-holder" href="#">
+                            <img src="/assets/product-small-01.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 no-margin">
+                        <a href="#">Netbook Acer </a>
+                        <div class="price">
+                            <div class="price-prev">$2000</div>
+                            <div class="price-current">$1873</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <%end%>
+        </ul>
+    </div>
+    <!-- /.widget -->
+
+    <div class="widget">
+        <div class="simple-banner">
+            <a href="#"><img src="/assets/banner-simple.jpg" class="img-responsive" alt=""></a>
+        </div>
+    </div>
+
+    <!-- =============== FEATURED PRODUCTS ================== -->
+    <div class="widget">
+        <h1 class="border">Featured Products</h1>
+        <ul class="product-list">
+            <%5.times do %>
+            <li class="sidebar-product-list-item">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 no-margin">
+                        <a class="thumb-holder" href="#">
+                          <img src="/assets/product-small-01.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 no-margin">
+                        <a href="#">Netbook Acer </a>
+                        <div class="price">
+                            <div class="price-prev">$2000</div>
+                            <div class="price-current">$1873</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <%end%>
+            <!-- /.sidebar-product-list-item -->
+        </ul>
+        <!-- /.product-list -->
+    </div>
+    <!-- /.widget -->
+    <!-- ====== FEATURED PRODUCTS : END ============== -->
+</div>

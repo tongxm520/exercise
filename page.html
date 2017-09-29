@@ -1,0 +1,100 @@
+<!--[if lte IE 8]>
+	<script>(function(){for(var a=arguments.length,b=0;a>b;b++)document.createElement(arguments[b])})("address","article","aside","audio","canvas","details","figcaption","figure","header","footer","hgroup","menu","nav","section","summary","time","video");
+</script>
+<![endif]-->
+
+<script type="text/javascript">
+var COOKIE_DOMAIN = COOKIESDIAMON = '.gearbest.com';
+var DOMAIN = 'https://www.gearbest.com',
+    MAIN_DOMAIN = 'https://www.gearbest.com',
+    MOBILE_URL = 'https://m.gearbest.com/',
+    DOMAIN_IMG = 'https://review.gbtcdn.com';
+var JS_IMG_URL = 'https://css.gbtcdn.com/imagecache/GB2/';
+
+var JS_LANG = '';
+
+var UPLOAD_URL = 'https://uploads.reuew.com/',
+    DOMAIN_CART = 'https://cart.gearbest.com',
+    DOMAIN_USER = 'https://user.gearbest.com',
+    HTTPS_LOGIN_DOMAIN = 'https://login.gearbest.com',
+    HTTPS_ORDER_DOMAIN = 'https://order.gearbest.com';
+var WEB_CLICK_DOMAIN = 'https://webclick.appinthestore.com/click/index';
+
+var GOODSPRICE = 'https://s.gearbest.com/api/gearbest/v2/goods/price';
+</script>
+
+<script type="text/javascript">
+(function() {
+  $.getUrlParamete = function(name) {
+      var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) return decodeURI(r[2]);
+      return null;
+  }
+  var $debugCode = $.getUrlParamete('debug');
+
+  window.onerror = function stopError() {
+      if ($debugCode == null || $debugCode == '') {
+          return true;
+      }
+  }
+})()
+</script>
+
+<script type="text/javascript">
+$(window).on('load', function() {
+    $LAB.script('https://apis.google.com/js/plusone.js')
+});
+</script>
+
+<script type="text/javascript">
+$('.indexCountrySearch').click(function(e) {
+  e.stopPropagation()
+  $('.list-container').show();
+});
+
+function onValueChange(inputDom, fun) {
+  if (!inputDom) return;
+  if (/msie/i.test(navigator.userAgent)) {
+    inputDom.onpropertychange = fun;
+  } else {
+    inputDom.addEventListener("input", fun, false);
+  }
+};
+onValueChange(document.getElementById('index_country_search'), function() {
+  var inputvalue = $('#index_country_search').val().toUpperCase();
+  var country = SET_COUNTRY_CURRENCY.countries;
+  var countrytext = $('.indexCountrySearch');
+  var htmlinput = '';
+  for (var i = 0; i < country.length; i++) {
+    var inputvaluenth = country[i].n.toUpperCase().indexOf(inputvalue);
+    if (inputvaluenth == 0) {
+      htmlinput += '<a rel="nofollow" data-countrycode="' + country[i].c + '" data-countryname="' + country[i].n + '" data-countryid="' + country[i].id + '" href="javascript:void(0);"><span class="css_flag css_af"><span class="country-text">' + country[i].n + '</span></span></a>';
+    }
+  }
+  countrytext.nextAll('a').remove();
+  countrytext.after(htmlinput)
+});
+$("#download-app-and-ios").on("click", function() {
+  window.open(HTTPS_LOGIN_DOMAIN + "/download_app_and_ios.html");
+});
+</script>
+
+<script type="text/javascript">
+$(function() {
+  $('#js_topLanguageBox')[0].onclick = function() {
+      $('.goog-te-menu-value span').eq(1).hide().addBack().eq(2).css('float', 'right').css('lineHeight', '28px').css('marginRight', '3px');
+      this.onclick = null;
+  }
+});
+</script>
+
+
+
+
+
+
+
+
+
+
