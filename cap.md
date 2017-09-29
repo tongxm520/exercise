@@ -55,6 +55,8 @@ cd /lib/i386-linux-gnu
 ##cap deploy:setup
 ##cap -T
 
+##git empty directory cannot push
+
 
 
 

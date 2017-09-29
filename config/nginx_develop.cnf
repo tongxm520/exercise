@@ -20,13 +20,8 @@ http {
     listen       80; #非root用户只能用1024之外端口
     server_name  www.exercise.com;
    
-      #网站根目录
+    #网站根目录
     root /home/simon/exercise/public;
-
-    location ^~ /assets/ {
-			expires max;
-			add_header Cache-Control public;
-		}
 
     try_files $uri/index.html $uri @unicorn_exercise;
     location @unicorn_exercise {

@@ -57,13 +57,24 @@ git add .
 git commit -am "all code"
 git push origin master
 
+##run in development
+cap unicorn:stop
+sudo service unicorn_exercise start
 
+cap nginx:stop
+rake nginx:setup
+sudo service nginx start
 
+##run in production
+cap deploy
+cap deploy:setup
+cap -T
 
+sudo service unicorn_exercise stop
+cap unicorn:start
 
-
-
-
+sudo service nginx stop
+cap nginx:start
 
 
 
