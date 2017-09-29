@@ -55,9 +55,7 @@ cd /lib/i386-linux-gnu
 ##cap deploy:setup
 ##cap -T
 
-/log
-/public
-/tmp
+
 
 
 
