@@ -76,6 +76,11 @@ cap unicorn:start
 sudo service nginx stop
 cap nginx:start
 
+##.gitignore /log/development.log doesnot work
+cause  /log/development.log is already in the repository
+just rm /log/development.log and push
+after that,.gitignore will take effect
 
+##git empty directory cannot push
 
 
