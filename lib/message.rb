@@ -11,6 +11,10 @@ class Message
     'Invalid token'
   end
 
+  def self.token_not_exist
+    'token not exist in the database'
+  end
+
   def self.missing_token
     'Missing token'
   end

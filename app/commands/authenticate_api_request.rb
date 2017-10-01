@@ -16,7 +16,21 @@ class AuthenticateApiRequest
   def user
     # check if user is in the database
     # memoize user object
-    @user ||= Customer.find(decoded_auth_token[:user_id]) if decoded_auth_token
+    if decoded_auth_token
+      _user_id=decoded_auth_token[:user_id]
+      token = JSON.load($redis.get("user-#{_user_id}"))
+      if token["auth_token"]!=@decoded_auth_token
+        raise(ExceptionHandler::TokenNotExist,"#{Message.token_not_exist}")
+      end
+      if token["valid"]==false
+        raise(ExceptionHandler::InvalidToken,"#{Message.invalid_token}")
+      end
+      @user ||= Customer.find(_user_id)
+      token["access_at"] = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+      #TODO:if token close to expired refresh token
+      $redis.set("user-#{_user_id}", token.to_json)
+      @user
+    end
   rescue ActiveRecord::RecordNotFound => e
     # raise custom error
     raise(ExceptionHandler::InvalidToken,"#{Message.invalid_token} #{e.message}")

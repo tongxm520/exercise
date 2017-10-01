@@ -4,7 +4,7 @@ class JsonWebToken
   HMAC_SECRET=Exercise::Application.config.secret_token  
 
   class << self
-    def encode(payload, exp=24.hours.from_now)
+    def encode(payload, exp=3.days.from_now)
       # set expiry to 24 hours from creation time
       payload[:exp]=exp.to_i
       # sign token with application secret

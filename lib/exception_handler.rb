@@ -6,6 +6,7 @@ module ExceptionHandler
   class MissingToken < StandardError; end
   class InvalidToken < StandardError; end
   class ExpiredSignature < StandardError; end
+  class TokenNotExist < StandardError; end
 
   included do
     # Define custom handlers
@@ -13,6 +14,7 @@ module ExceptionHandler
 		rescue_from ExceptionHandler::AuthenticationError, with: :unauthorized_request
 		rescue_from ExceptionHandler::MissingToken, with: :four_twenty_two
 		rescue_from ExceptionHandler::InvalidToken, with: :four_twenty_two
+    rescue_from ExceptionHandler::TokenNotExist, with: :four_twenty_two
 		rescue_from ExceptionHandler::ExpiredSignature, with: :four_twenty_two
     rescue_from ActiveRecord::RecordNotFound, with: :not_found
   end

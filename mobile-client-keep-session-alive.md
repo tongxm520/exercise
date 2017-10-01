@@ -350,13 +350,18 @@ The user's refresh token cannot be used to get new tokens for the user.
 The user's access token cannot be used against the user pools service.
 The user must reauthenticate to get new tokens.
 
-
+  
 previous_access_at
 current_access_at=Time.now
 if(current_access_at - previous_access_at>=a week ) regenerate access_token
 make judgement whether the access token is expired or expiring per access 
 if close to expired regenerate access_token to return to client
 change secret periodically
+
+##android/ios client check whether the access token is expired or expiring
+periodically refresh token
+
+
 
 
 

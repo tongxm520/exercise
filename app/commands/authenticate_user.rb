@@ -1,13 +1,19 @@
 class AuthenticateUser
   prepend SimpleCommand
+  attr_accessor :user_id
 
   def initialize(email, password)
     @email = email
-    @password = password
+    @password = password 
+    @user_id=nil  
   end
 
   def call
-    JsonWebToken.encode(user_id: user.id) if user
+    if user
+      token=JsonWebToken.encode(user_id: user.id)
+      @user_id=user.id
+      token
+    end
   end
 
   private

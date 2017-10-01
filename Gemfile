@@ -41,8 +41,12 @@ gem 'simple_command','0.0.9'
 
 gem 'unicorn','5.1.0'
 
-gem 'redis','4.0.0'
-gem 'memcache-client','1.8.5'
+gem 'redis','3.3.5'
+gem 'redis-namespace','1.5.3'
+#gem 'memcache-client','1.8.5'
+gem 'dalli','2.1.0'
+gem 'rack-mini-profiler','0.10.5', require: false
+gem 'faker','1.8.4'
 
 group :development do
   gem 'capistrano','2.13.5'

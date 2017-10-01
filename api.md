@@ -148,6 +148,8 @@ curl -i -X PUT -d "customer[user_name]=victoria&customer[email]=victoria@163.com
 
 curl -i http://www.exercise.com/api/v1/customers/1.json -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1MDYxNDY4Mjd9.Xyi11Q-86wogx-ToQxxf3kBbFpnmI0vZVA6KCp-DHcQ"
 
+curl -i http://www.exercise.com/api/v1/customers/1.json -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1MDY5NDExNzd9.fNbyLEL8xfn9ARQVoYKNQlNKhmBDUaIHQCMdll6GaB4"
+
 
 
 

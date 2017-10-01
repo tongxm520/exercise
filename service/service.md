@@ -83,4 +83,26 @@ after that,.gitignore will take effect
 
 ##git empty directory cannot push
 
+page cache
+fragment cache
+model cache
+
+##telnet 127.0.0.1 11211
+
+sudo service memcached stop
+
+##rails query cache instead of memcached
+##fix=>config.cache_classes = true in development
+
+##memcached -vv
+
+
+
+
+
+
+
+
+
+
 

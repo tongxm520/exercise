@@ -9,6 +9,20 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+unless defined? MEMCACHE_OPTIONS then
+  MEMCACHE_OPTIONS = {
+    :namespace => "exercise-#{Rails.env}",
+    :compress => true,
+    :expires_in => 1.month }
+end
+
+# memcache configuration
+unless defined? MEMCACHE_CONFIG then
+  File.open File.expand_path("../memcached.yml", __FILE__) do |memcache|
+    MEMCACHE_CONFIG = YAML::load memcache
+  end
+end
+
 module Exercise
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -58,5 +72,17 @@ module Exercise
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    #ActiveSupport::TimeZone.all.map(&:name)
+    #rails默认是utc，改成本地时间
+    config.time_zone = 'Beijing'
+    config.active_record.default_timezone = :local
+
+    config.consider_all_requests_local       = true
+    config.action_controller.perform_caching = true
+    config.cache_store = :dalli_store,MEMCACHE_CONFIG[Rails.env],MEMCACHE_OPTIONS 
   end
 end
+
+
+
