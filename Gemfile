@@ -56,6 +56,9 @@ group :development do
   #gem 'capistrano-chruby', github: 'capistrano/chruby', require: false
 end
 
+gem 'cache_digests','0.3.1'
+gem 'haml','4.0.7'
+gem 'slim','3.0.2'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
