@@ -41,7 +41,7 @@ case $1 in
   start)
     sig 0 && echo >&2 "Already running" && exit 0
     echo "Starting $APP_NAME"
-    su - $USER -c "$CMD"
+    sudo su - $USER -c "$CMD"
     ;;
   stop)
     echo "Stopping $APP_NAME"

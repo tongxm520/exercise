@@ -59,6 +59,7 @@ end
 gem 'cache_digests','0.3.1'
 gem 'haml','4.0.7'
 gem 'slim','3.0.2'
+gem 'net-ssh','4.2.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

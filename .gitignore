@@ -15,4 +15,5 @@
 /log/*.log
 /public
 /tmp
+/public/uploads
 

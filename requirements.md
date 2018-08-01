@@ -1,17 +1,3 @@
-This is a coding exercise used by Bergamotte for technical recruitment purposes. There are no limit of time to perform this task nor any particular restriction, however, please spend no more than six consecutive hours.
-
-## Instructions
-
-Please send a zip archive containing your code and any relevant materials in an email along with your resume and motivations to [jobs@bergamotte.com](jobs@bergamotte.com). Include a readme file explaining your assumptions, providing any necessary assumptions, and stating  what you would accomplish with more time.
-
-The purpose of this test is to verify your abilities to code and see how you architecture an application, so this is the time to show everything you know that is applicable and relevant.
-
-Read through the exercise background, try completing as many tasks and additional questions as you can.
-
-Finally, please note that even if you have questions about the test we will not answer them, do what you think is best.
-
-Thank you for committing this time and effort, we are looking forward to seeing  your results.
-
 ## Exercise background
 
 We have a (very) basic e-commerce platform, with the four models (Product, Order, Item and ProductItem). You can find the relationships (if not figured already) in the models files and the database design in the schema file.
@@ -61,6 +47,8 @@ Month|Reccuring Customer|New customer|Total
 ----|----|----|----
 June 2016|0|800|800
 July 2016|15|290|305
+
+Monthly recurring revenue (MRR) is income that a business can count on receiving every single month.
 
 # Additional questions
 *No coding necessary, explain the concept or sketch your thoughts.*
@@ -134,5 +122,6 @@ sku : 影响价格和库存的属性集合, 与商品是多对一的关系
 
 
 ##Buyer Seller
+
 
 
