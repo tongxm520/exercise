@@ -41,6 +41,13 @@ Orders|Customers|Percentage
 2 orders|20|20%
 3 orders|5|5%
 
+I have 'member' table with a 'nationality' column. I want to get the
+percentage breakdown of members by nationality, e.g.
+
+American  29%
+Canadian  14%
+Mexican   11%
+
 ***Example 2***
 
 Month|Reccuring Customer|New customer|Total
@@ -48,7 +55,39 @@ Month|Reccuring Customer|New customer|Total
 June 2016|0|800|800
 July 2016|15|290|305
 
+
+## Query - Find new and repeating users in MySQL
+
+I have a visit table with user_id and visited_at columns. I would like to find how many are new and repeat customer in this month.
+I want count of customers(NewCustomers, repeatCustomers) on the basis of previous and current month
+
+user_id      visited_at
+--------------------------------------------------------------------------
+1750        2015-04-06 10:39:20
+1870        2015-04-05 15:48:11
+1990        2015-04-04 12:38:35
+1920        2015-04-03 10:18:21
+1080        2015-04-01 10:18:21
+1750        2015-01-28 12:38:59
+1920        2015-01-19 17:20:20
+1920        2015-01-17 15:10:10
+1080        2015-01-13 20:18:41
+1920        2014-04-04 10:31:15
+1750        2013-10-04 10:39:20
+
+In January 2015, user 1750 and 1920 visited the same place so total repeated customers are 2. In April 2015, user 1750, 1920 and 1080 visited the same place so total repeated customers are 3. The output should be something like this
+
+Month               New        Repeat
+----------------------------------------------
+October 2013        1          0
+April 2014          1          0
+January 2015        1          2
+April 2015          2          3
+
+## This is for month and year. Can I also do it day wise in a month or do I have to write another query? 
+
 Monthly recurring revenue (MRR) is income that a business can count on receiving every single month.
+google=>mysql recurring customer and new customer monthly
 
 # Additional questions
 *No coding necessary, explain the concept or sketch your thoughts.*

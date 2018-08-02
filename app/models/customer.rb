@@ -38,6 +38,27 @@ class Customer < ActiveRecord::Base
 		  select("DISTINCT customers.id AS customer_id,customers.first_name AS customer_first_name,categories.id AS category_id,categories.name AS category_name").
 		  order("customer_first_name,category_name")
     end
+
+    #Find how many customers(NewCustomers, repeatCustomers) who orders on the basis of previous and current month
+    def new_vs_reccuring_customers
+      sql="SELECT date_part('year',o.created_at) AS year, date_part('month',o.created_at) AS month,COUNT(DISTINCT o.customer_id) AS total,COUNT(CASE WHEN o.created_at = oo.min_created THEN o.customer_id END) AS new_customer_count,COUNT(DISTINCT o.customer_id)-COUNT(CASE WHEN o.created_at = oo.min_created THEN o.customer_id END) AS reccuring_customer_count
+      FROM orders o JOIN
+      (SELECT customer_id, MIN(created_at) AS min_created
+       FROM orders
+       GROUP BY customer_id
+      ) oo
+      ON o.customer_id = oo.customer_id
+      GROUP BY date_part('year',o.created_at), date_part('month',o.created_at)
+      ORDER BY date_part('year',o.created_at), date_part('month',o.created_at)"
+      self.find_by_sql(sql)
+    end
+
+    #Find order uniq customer count by number of orders
+    #(COUNT(t.orders_count)/SUM(COUNT(t.orders_count)) OVER ()) AS percentage
+    def customers_count_by_order_count
+      query="SELECT t.orders_count,COUNT(t.orders_count) AS customers_count, CONCAT(CAST(ROUND(100.0 * (COUNT(t.orders_count)/SUM(COUNT(t.orders_count)) OVER ()), 1) AS text),'%') AS percentage FROM (SELECT orders.customer_id,COUNT(orders.customer_id) AS orders_count FROM orders GROUP BY orders.customer_id ORDER BY orders.customer_id) AS t GROUP BY t.orders_count ORDER BY t.orders_count"
+      self.find_by_sql(query)
+    end
   end
   
   # 'password' is a virtual attribute

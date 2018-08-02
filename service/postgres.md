@@ -267,7 +267,8 @@ curl http://localhost:3000/api/builds/289
 
 rails g controller Data --no-helper --no-assets --no-javascript
 
-
+PostgreSQL calculate difference between rows
+PostgreSQL calculate difference between columns
 
 
 
