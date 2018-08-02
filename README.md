@@ -1,6 +1,8 @@
 # exercise
 E-commerce store, including Restful API service with JWT,deploy with nginx+unicorn ,redis,memcache,postgres
 
+## database: postgresql
+
 ## recommand products to customer according to his likes
 
     def customer_like_categories
