@@ -93,7 +93,7 @@ In particular, for a POST request resulting from an HTML form submission, the **
             "user": {
                 "username": "admin",
                 "id": "A3BD18A4-48C2-11E4-8F60-0050562B9EF5",
-                "permissionrights": [
+                "rights": [
                     {
                         "permissions": {
                             "allowCreate": false,

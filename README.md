@@ -5,11 +5,13 @@ E-commerce store, including Restful API service with JWT,deploy with nginx+unico
 
 ## recommand products to customer according to his likes
 
-    def customer_like_categories
-      self.joins('INNER JOIN orders ON customers.id=orders.customer_id INNER JOIN line_items ON orders.id=line_items.order_id INNER JOIN products ON products.id=line_items.product_id INNER JOIN categories ON categories.id=products.category_id').
-      select("DISTINCT customers.id AS customer_id,customers.first_name AS customer_first_name,categories.id AS category_id,categories.name AS category_name").
-      order("customer_first_name,category_name")
-    end
+```ruby
+def customer_like_categories
+  self.joins('INNER JOIN orders ON customers.id=orders.customer_id INNER JOIN line_items ON orders.id=line_items.order_id INNER JOIN products ON products.id=line_items.product_id INNER JOIN categories ON categories.id=products.category_id').
+  select("DISTINCT customers.id AS customer_id,customers.first_name AS customer_first_name,categories.id AS category_id,categories.name AS category_name").
+  order("customer_first_name,category_name")
+end
+```
 
 	 +-------------+---------------------+-------------+-------------------------+
 	 | customer_id | customer_first_name | category_id | category_name           |
@@ -47,19 +49,20 @@ E-commerce store, including Restful API service with JWT,deploy with nginx+unico
     | 4           | 2015-04-06 10:39:20 +0800 |
     +-------------+---------------------------+
 
-    def new_vs_reccuring_customers
-      sql="SELECT date_part('year',o.created_at) AS year, date_part('month',o.created_at) AS month,COUNT(DISTINCT o.customer_id) AS total,COUNT(CASE WHEN o.created_at = oo.min_created THEN o.customer_id END) AS new_customer_count,COUNT(DISTINCT o.customer_id)-COUNT(CASE WHEN o.created_at = oo.min_created THEN o.customer_id END) AS reccuring_customer_count
-      FROM orders o JOIN
-      (SELECT customer_id, MIN(created_at) AS min_created
-       FROM orders
-       GROUP BY customer_id
-      ) oo
-      ON o.customer_id = oo.customer_id
-      GROUP BY date_part('year',o.created_at), date_part('month',o.created_at)
-      ORDER BY date_part('year',o.created_at), date_part('month',o.created_at)"
-      self.find_by_sql(sql)
-    end
-    
+```ruby
+def new_vs_reccuring_customers
+  sql="SELECT date_part('year',o.created_at) AS year, date_part('month',o.created_at) AS month,COUNT(DISTINCT o.customer_id) AS total,COUNT(CASE WHEN o.created_at = oo.min_created THEN o.customer_id END) AS new_customer_count,COUNT(DISTINCT o.customer_id)-COUNT(CASE WHEN o.created_at = oo.min_created THEN o.customer_id END) AS reccuring_customer_count
+  FROM orders o JOIN
+  (SELECT customer_id, MIN(created_at) AS min_created
+   FROM orders
+   GROUP BY customer_id
+  ) oo
+  ON o.customer_id = oo.customer_id
+  GROUP BY date_part('year',o.created_at), date_part('month',o.created_at)
+  ORDER BY date_part('year',o.created_at), date_part('month',o.created_at)"
+  self.find_by_sql(sql)
+end
+```
     +------+-------+-------+--------------------+--------------------------+
     | year | month | total | new_customer_count | reccuring_customer_count |
     +------+-------+-------+--------------------+--------------------------+
@@ -95,12 +98,12 @@ E-commerce store, including Restful API service with JWT,deploy with nginx+unico
     | 12 | 4           |
     +----+-------------+
 
-
-    def customers_count_by_order_count
-      query="SELECT t.orders_count,COUNT(t.orders_count) AS customers_count, CONCAT(CAST(ROUND(100.0 * (COUNT(t.orders_count)/SUM(COUNT(t.orders_count)) OVER ()), 1) AS text),'%') AS percentage FROM (SELECT orders.customer_id,COUNT(orders.customer_id) AS orders_count FROM orders GROUP BY orders.customer_id ORDER BY orders.customer_id) AS t GROUP BY t.orders_count ORDER BY t.orders_count"
-      self.find_by_sql(query)
-    end
-    
+```ruby
+def customers_count_by_order_count
+  query="SELECT t.orders_count,COUNT(t.orders_count) AS customers_count, CONCAT(CAST(ROUND(100.0 * (COUNT(t.orders_count)/SUM(COUNT(t.orders_count)) OVER ()), 1) AS text),'%') AS percentage FROM (SELECT orders.customer_id,COUNT(orders.customer_id) AS orders_count FROM orders GROUP BY orders.customer_id ORDER BY orders.customer_id) AS t GROUP BY t.orders_count ORDER BY t.orders_count"
+  self.find_by_sql(query)
+end
+```
     +--------------+-----------------+------------+
     | orders_count | customers_count | percentage |
     +--------------+-----------------+------------+
