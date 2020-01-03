@@ -8,7 +8,7 @@ load "config/recipes/nginx"
 #load "config/recipes/rbenv"
 #load "config/recipes/check"
 
-server "192.168.1.106", :web, :app, :db, primary: true
+server "192.168.1.103", :web, :app, :db, primary: true
 
 set :user, "simon"
 set :application, "exercise"

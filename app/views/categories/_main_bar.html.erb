@@ -53,8 +53,8 @@
                                     <div class="ribbon red"><span>sale</span></div>
                                     <div class="ribbon green"><span>bestseller</span></div>
                                     <div class="image">
-                                        <!--img src="/assets/products/product-04.jpg" alt=""-->
-                                        <%= image_tag(p.image_url,:class=> "product-grid-image") %>
+                                        <!--img src="/assets/products/product-04.jpg" alt=""-->                                        
+                                        <%= image_tag(asset_path("/"+p.image_url),:class=> "product-grid-image") %>
                                     </div>
                                     <div class="body">
                                         <!--div class="label-discount clear"></div-->
@@ -122,7 +122,7 @@
                                 <div class="no-margin col-xs-12 col-sm-4 image-holder">
                                     <div class="image">
                                         <!--img src="/assets/products/product-02.jpg" alt=""-->
-                                        <%= image_tag(p.image_url,:class=> "product-grid-image") %>
+                                        <%= image_tag(asset_path("/"+p.image_url),:class=> "product-grid-image") %>
                                     </div>
                                 </div>
                                 <!-- /.image-holder -->

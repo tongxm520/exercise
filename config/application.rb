@@ -73,6 +73,9 @@ module Exercise
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    config.serve_static_assets = true
+    #Rails Asset Pipeline: Serve static assets from the public directory 
+
     #ActiveSupport::TimeZone.all.map(&:name)
     #rails默认是utc，改成本地时间
     config.time_zone = 'Beijing'

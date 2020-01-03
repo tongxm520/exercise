@@ -2664,7 +2664,8 @@ header .top-cart-row .top-cart-holder .basket-item .radio-label.price,
     font-size: 17px;
 }
 .product-item-holder .body .title {
-    margin: 7px 0 0 0;
+    /*margin: 7px 0 0 0;*/
+    margin: 0;
     line-height: 19px;
 }
 .product-item-holder .body .title a {
